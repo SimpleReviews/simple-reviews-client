@@ -1,0 +1,10 @@
+<div class="jumbotron text-center">
+  <h1 class="lead">No more boring reviews.</h1>
+  <p class="lead">Read a few bullet points, watch some videos and make a decision.</p>
+</div>
+
+<ul>
+  {{#each}}
+      <li>{{#link-to 'category' this}}{{name}}{{/link-to}}</li>
+  {{/each}}
+</ul>

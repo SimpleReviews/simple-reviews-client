@@ -1,0 +1,45 @@
+<ol class="breadcrumb">
+  <li>{{link-to 'Categories' 'categories'}}</li>
+  <li>{{link-to category.name 'category' category}}</li>
+  <li class="active">{{name}}</li>
+</ol>
+
+<div class="page-header">
+  <h1>{{name}}</h1>
+</div>
+
+<h2>Positive Reviews</h2>
+<ul>
+  {{#each positiveReviews}}
+    <li {{action "likeReview" this}}>{{body}} <b>[{{likes.length}}]</b></li>
+  {{/each}}
+</ul>
+
+<form {{action "addPositiveReview" on="submit"}}>
+  {{input type="text" value=positiveReview placeholder="Enter a positive review"}}
+</form>
+
+<h2>Negative Reviews</h2>
+<ul>
+  {{#each negativeReviews}}
+    <li {{action "likeReview" this}}>{{body}} <b>[{{likes.length}}]</b></li>
+  {{/each}}
+</ul>
+
+<form {{action "addNegativeReview" on="submit"}}>
+  {{input type="text" value=negativeReview placeholder="Enter a negative review"}}
+</form>
+
+<h2>Youtube</h2>
+<ul>
+  {{#each videoResults}}
+    <li>{{title}}</li>
+  {{/each}}
+</ul>
+
+<h2>Instagram</h2>
+<ul>
+  {{#each photoResults}}
+    <li>{{link}}</li>
+  {{/each}}
+</ul>

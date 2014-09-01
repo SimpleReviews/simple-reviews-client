@@ -1,0 +1,14 @@
+<ol class="breadcrumb">
+  <li>{{link-to "Categories" "categories"}}</li>
+  <li class="active">{{name}}</li>
+</ol>
+
+<div class="page-header">
+  <h1>{{name}}</h1>
+</div>
+
+<ul>
+  {{#each products}}
+    <li>{{#link-to 'product' this}}{{name}}{{/link-to}}</li>
+  {{/each}}
+</ul>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SimpleReviews</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/simple-reviews.css">
+  </head>
+  <body>
+    <script>
+      window.SimpleReviewsENV = {{ENV}};
+      window.EmberENV = window.SimpleReviewsENV.EmberENV;
+      window.ENV = { torii: SimpleReviewsENV.torii };
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/simple-reviews.js"></script>
+    <script>
+      window.SimpleReviews = require('simple-reviews/app')['default'].create(SimpleReviewsENV.APP);
+    </script>
+  </body>
+</html>

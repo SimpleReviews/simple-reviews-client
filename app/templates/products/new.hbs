@@ -1,0 +1,44 @@
+<h1>Add a product</h1>
+
+{{#unless selectedProduct}}
+  {{input type="text" value=searchQuery placeholder="Enter a product name..."}}
+
+  {{#if searchResults}}
+    <ul>
+      {{#each searchResults}}
+        <li {{action "selectProduct" this}}>{{name}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+{{else}}
+  <p><b>Product:</b> {{selectedProduct.name}}</p>
+
+  {{#unless selectedTag}}
+
+    {{input type="text" value=tagQuery placeholder="Enter a tag name..."}}
+
+    {{#if tagResults}}
+      <ul>
+        {{#each tagResults}}
+          <li {{action "selectTag" this}}>#{{name}} - <b>{{mediaCount}}</b></li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  {{else}}
+    <p><b>Tag:</b> #{{selectedTag.name}}</p>
+
+    {{#unless selectedPhoto}}
+      {{#each photoResults}}
+        <img {{bind-attr src="images.thumbnail.url"}} height="150" {{action "selectPhoto" this}}/>
+      {{/each}}
+    {{else}}
+      <p><b>Photo:</b>
+        <img {{bind-attr src="selectedPhoto.images.thumbnail.url"}} height="150"/>
+      </p>
+    {{/unless}}
+  {{/unless}}
+{{/unless}}
+
+<br><br>
+<button class="btn btn-default" {{action "save" model}}>Create product</button>
+<button class="btn btn-default" {{action "reset"}}>Reset</button>
