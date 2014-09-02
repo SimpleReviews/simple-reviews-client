@@ -15,7 +15,7 @@ export default Ember.Route.extend({
         return controller.set('error', "Passwords don't match.");
 
       Ember.$.ajax({
-        url: 'http://localhost:3000/signup',
+        url: SimpleReviewsENV.hostUrl + '/signup',
         type: 'POST',
         data: {
           user: data

@@ -6,7 +6,7 @@ export default Ember.Object.extend({
     console.log('provider');
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax({
-        url: 'http://localhost:3000/signin',
+        url: SimpleReviewsENV.hostUrl + '/signin',
         type: 'POST',
         data: {
           email: credentials.email,

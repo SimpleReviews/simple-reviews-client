@@ -12,7 +12,7 @@ export default Ember.Object.extend({
       }
 
       Ember.$.ajax({
-        url: 'http://localhost:3000/session',
+        url: SimpleReviewsENV.hostUrl + '/session',
         type: 'GET',
         headers: {
           'Authorization': token
